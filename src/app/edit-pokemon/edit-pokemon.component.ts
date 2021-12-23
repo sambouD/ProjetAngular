@@ -29,6 +29,9 @@ export class EditPokemonComponent implements OnInit {
 
 
 onSubmit(f:NgForm){
+  this.pokemonService.updatePokemon(this.pokemon).subscribe(data => {   // Modification du pokemon via la requet PUT()
+    this.pokemon = data
+  });
   console.log(this.pokemon);
 }
 
