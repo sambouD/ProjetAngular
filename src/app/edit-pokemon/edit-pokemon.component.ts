@@ -19,12 +19,12 @@ export class EditPokemonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
-    this.pokemon = this.pokemonService.getPokemon(id);
+    let id = this.route.snapshot.params['id']; // recuperation de l'id du pokemon dans l'url active
+    this.pokemon = this.pokemonService.getPokemon(id); // Recupere le pokemon avec l'id methode GET() + ID du pokemon
   }
 
   goBack(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['']); // fonction de redirection vers la page home
 }
 
 

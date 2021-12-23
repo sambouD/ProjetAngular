@@ -21,7 +21,7 @@ pokemon:any;
 
     let id = this.route.snapshot.params['id'];
     this.pokemon = this.pokemonService.getPokemon(id).subscribe(data => {
-      this.pokemon = data;
+      this.pokemon = data; // Recupere le pokemon avec l'id de celui dans l'url
     });
   }
 
@@ -31,7 +31,7 @@ pokemon:any;
 
 
  remove(){
-  this.pokemonService.deletePokemon(this.pokemon).subscribe(_=> this.goBack());
+  this.pokemonService.deletePokemon(this.pokemon).subscribe(_=> this.goBack()); // Suppression via la methode DELETE() + pokemon a supprimer
  }
 
 }
