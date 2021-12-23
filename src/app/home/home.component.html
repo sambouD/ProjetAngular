@@ -1,12 +1,18 @@
+<app-nav></app-nav>
 <div class="main">
+  <h1 class="text-center"><img src="assets/pok.png" style="width:50px;" alt="" *ngFor="let pokemon of pokemons"></h1>
+  <p class="text-center text-muted">Vous disposez de: {{pokemons.length }}</p>
+  <hr>
   <section class="container">
     <div class="row">
       <div class="card pokeball col-md-4 m-3 mx-auto rounded-2"
         style="width: 18rem;" *ngFor="let pokemon of pokemons">
         <a [routerLink]="['single', pokemon.id]">
           <img [src]="pokemon.picture" class="card-img-top" alt="...">
+          <hr>
           <div class="card-body">
             <h5 class="text-center">{{pokemon.name}}</h5>
+            <h1 class="text-center"><img src="assets/pok.png" style="width:30px;" alt="" ></h1>
           </div>
         </a>
       </div>

@@ -6,3 +6,7 @@ a{
   text-decoration: none;
   color: black;
 }
+.pokeball{
+
+  border:solid 1px rgb(163, 0, 0);
+  }

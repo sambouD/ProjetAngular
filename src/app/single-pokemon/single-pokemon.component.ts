@@ -9,7 +9,7 @@ import { SearchPokemonService } from '../service/search-pokemon.service';
   styleUrls: ['./single-pokemon.component.css']
 })
 export class SinglePokemonComponent implements OnInit {
-pokemon:Pokemon = new Pokemon();
+pokemon:any;
 
 
   constructor(
@@ -28,12 +28,12 @@ pokemon:Pokemon = new Pokemon();
 }
 
 
-remove(){
-  const index = this.pokemonService.getPokemons().indexOf(this.pokemon,0);
-   if (index > -1) {
-    this.pokemonService.getPokemons().splice(index, 1);
-   }
-   this.goBack();
-}
+// remove(){
+//   const index = this.pokemonService.getPokemons().indexOf(this.pokemon,0);
+//    if (index > -1) {
+//     this.pokemonService.getPokemons().splice(index, 1);
+//    }
+//    this.goBack();
+// }
 
 }

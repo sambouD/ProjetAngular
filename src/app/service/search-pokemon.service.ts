@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { POKEMONS } from '../bdd/pokemons-list';
 import { Pokemon } from '../models/pokemon';
 
@@ -9,23 +11,22 @@ export class SearchPokemonService {
 
   pokemons = POKEMONS;
   pokemon: Pokemon =  new Pokemon();
-  constructor() { }
+  private pokemonsUrlApi = 'api/pokemons';
 
-// Retourne la liste des pokemons
-  getPokemons():Pokemon[]{
-    return POKEMONS;
+
+  constructor(private http:HttpClient) { }
+
+
+  getPokemons():Observable<Pokemon[]>{
+     return this.http.get<Pokemon[]>(this.pokemonsUrlApi);
   }
+
+
 
   getPokemon(id:number){
-    let pokemons = this.getPokemons();
-    for( let i = 0; i < pokemons.length; i++ ){
-      if(this.pokemons[i].id == id ){
-        this.pokemon = this.pokemons[i];
-      }
- }
-        return this.pokemon;
-
-  }
+     const url = `${this.pokemonsUrlApi}/${id}`;
+     return this.http.get<Pokemon>(url);
+}
 
 
 

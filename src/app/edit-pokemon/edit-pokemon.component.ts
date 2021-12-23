@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from '../models/pokemon';
 import { SearchPokemonService } from '../service/search-pokemon.service';
@@ -9,7 +10,7 @@ import { SearchPokemonService } from '../service/search-pokemon.service';
   styleUrls: ['./edit-pokemon.component.css']
 })
 export class EditPokemonComponent implements OnInit {
-  pokemon:Pokemon = new Pokemon();
+  @Input() pokemon:any;
 
   constructor(
     private route:ActivatedRoute,
@@ -24,6 +25,11 @@ export class EditPokemonComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['']);
+}
+
+
+onSubmit(f:NgForm){
+  console.log(this.pokemon);
 }
 
 }

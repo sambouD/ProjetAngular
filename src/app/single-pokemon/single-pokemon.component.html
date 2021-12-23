@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <section class="py-5">
   <h1 class="text-center">Detail de {{pokemon.name}}</h1>
   <div  *ngIf="pokemon"
@@ -18,11 +19,11 @@
             <i class="bi-cart-fill me-1"></i>
             Retour
         </a>
-          <a class="btn btn-success" type="button">
+          <a class="btn btn-success" type="button" [routerLink]="['/edit' ,pokemon.id]">
             <i class="bi-cart-fill me-1"></i>
             Modifier
           </a>
-          <a class="btn btn-primary flex-shrink-0" (click)="remove()" type="button">
+          <a class="btn btn-primary flex-shrink-0" type="button">
             <i class="bi-cart-fill me-1"></i>
             Liberer
           </a>
