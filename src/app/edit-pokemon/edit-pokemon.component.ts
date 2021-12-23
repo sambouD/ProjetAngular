@@ -35,6 +35,8 @@ onSubmit(f:NgForm){
     this.pokemon = data
   });
   console.log(this.pokemon);
+  let link = ['/single', this.pokemon.id];
+  this.router.navigate(link);
 }
 
 }

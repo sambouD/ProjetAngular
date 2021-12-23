@@ -38,7 +38,7 @@ export class SearchPokemonService {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////// MODIFICATION
-  updatePokemon(pokemon:Pokemon){// prend en argument un objet pokemon
+  updatePokemon(pokemon:Pokemon):Observable<Pokemon>{// prend en argument un objet pokemon
 
   const httpOptions ={
   headers: new HttpHeaders({'Content-Type':'application/json'}) //indique le type de données envoyées
