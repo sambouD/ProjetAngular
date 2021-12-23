@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { POKEMONS } from '../bdd/pokemons-list';
@@ -28,6 +28,14 @@ export class SearchPokemonService {
      return this.http.get<Pokemon>(url);
 }
 
+
+  deletePokemon(pokemon:Pokemon){// prend en argument un objet pokemon
+    const url = `${this.pokemonsUrlApi}/${pokemon.id}`; // constante url + id
+    const httpOptions ={
+    headers: new HttpHeaders({'Content-Type':'application/json'}) //indique le type de données envoyées
+  }
+     return this.http.delete<Pokemon>(url,httpOptions);   //retourne un observable (requete asynchrone de type delete)
+}
 
 
 }

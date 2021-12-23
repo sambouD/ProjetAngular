@@ -20,7 +20,9 @@ pokemon:any;
   ngOnInit(): void {
 
     let id = this.route.snapshot.params['id'];
-    this.pokemon = this.pokemonService.getPokemon(id);
+    this.pokemon = this.pokemonService.getPokemon(id).subscribe(data => {
+      this.pokemon = data;
+    });
   }
 
   goBack(): void {
@@ -28,12 +30,8 @@ pokemon:any;
 }
 
 
-// remove(){
-//   const index = this.pokemonService.getPokemons().indexOf(this.pokemon,0);
-//    if (index > -1) {
-//     this.pokemonService.getPokemons().splice(index, 1);
-//    }
-//    this.goBack();
-// }
+ remove(){
+  this.pokemonService.deletePokemon(this.pokemon).subscribe(_=> this.goBack());
+ }
 
 }
